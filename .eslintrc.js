@@ -19,6 +19,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    'react/prop-types': 'off',
     'no-undef': 'error',
     'react/function-component-definition': 'off',
     'consistent-return': 'off',

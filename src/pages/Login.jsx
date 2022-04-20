@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import LoginForm from '../components/LoginForm'
+import LoginForm from '../components/LoginForm';
 import '../styles/Login.scss';
 import { useNavigate } from 'react-router-dom';
 import getToken from '../utils/getToken';
@@ -9,9 +9,9 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-      if (token) {
-          navigate('/list');
-      }
+    if (token) {
+      navigate('/list');
+    }
   });
 
   return (
