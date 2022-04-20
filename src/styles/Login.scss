@@ -1,62 +1,62 @@
 .login {
-    min-height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    width: 450px;
+    padding: 20px 35px;
+    border-radius: 15px;
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        width: 450px;
-        padding: 20px 35px;
-        border-radius: 15px;
-
-        .title {
-            color: #666;
-            margin-top: 0;
-            font-size: 30px;
-        }
-
-        .input-container {
-            padding: 12px 5px 12px 0;
-
-            input {
-                padding: 12px 20px;
-                width: calc(100% - 42px);
-                border-radius: 6px;
-                border: 1px solid #c4c4c4;
-                transition: .3s;
-
-                &:focus-visible {
-                    outline: 0;
-                    transform: scale(1.03);
-                    transition: .3s;
-                    border: 1px solid #339cdd;
-                    box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
-                }
-            }
-        }
-
-        .submit-btn {
-            color: #fff;
-            font-size: 15px;
-            font-weight: 300;
-            font-weight: bold;
-            background-color: #339cdd;
-            border: 2px solid #339cdd;
-            border-radius: 10px;
-            width: 140px;
-            padding: 8px 0;
-            margin: 25px 0 10px auto;
-            cursor: pointer;
-            display: block;
-            transition: .3s;
-
-            &:hover {
-                transition: .3s;
-                background: transparent;
-                color: #339cdd;
-            }
-        }
+    .title {
+      color: #666;
+      margin-top: 0;
+      font-size: 30px;
     }
+
+    .input-container {
+      padding: 12px 5px 12px 0;
+
+      input {
+        padding: 12px 20px;
+        width: calc(100% - 42px);
+        border-radius: 6px;
+        border: 1px solid #c4c4c4;
+        transition: 0.3s;
+
+        &:focus-visible {
+          outline: 0;
+          transform: scale(1.03);
+          transition: 0.3s;
+          border: 1px solid #339cdd;
+          box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+
+    .submit-btn {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 300;
+      font-weight: bold;
+      background-color: #339cdd;
+      border: 2px solid #339cdd;
+      border-radius: 10px;
+      width: 140px;
+      padding: 8px 0;
+      margin: 25px 0 10px auto;
+      cursor: pointer;
+      display: block;
+      transition: 0.3s;
+
+      &:hover {
+        transition: 0.3s;
+        background: transparent;
+        color: #339cdd;
+      }
+    }
+  }
 }
