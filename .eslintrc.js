@@ -1,7 +1,9 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es6: true,
+    node: true,
+    commonjs: true,
   },
   extends: ['plugin:react/recommended'],
   parserOptions: {
@@ -11,8 +13,13 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+  globals: {
+    process: 'readonly',
+    module: 'readonly',
+  },
   plugins: ['react'],
   rules: {
+    'no-undef': 'error',
     'react/function-component-definition': 'off',
     'consistent-return': 'off',
     'no-alert': 'off',
