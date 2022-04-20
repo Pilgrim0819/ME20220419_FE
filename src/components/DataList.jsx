@@ -1,8 +1,11 @@
+import AddTodo from "./AddTodo";
 
 const DataList = () => {
-
     return (
         <div className="list-container">
+
+            <AddTodo />
+
             {[0,1,2].map(i => (
                 <div className="list-item">
                     <div className="list-item-title"> 
@@ -16,6 +19,6 @@ const DataList = () => {
             ))}
         </div>
     )
-}
+};
 
 export default DataList;

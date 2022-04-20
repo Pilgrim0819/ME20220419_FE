@@ -24,7 +24,6 @@ const List = () => {
     }, [])
 
     const fetchData = async () => {
-        // We have to get the todo's here just don't know the endpoint yet
         const resp = await axios.get(`${process.env.REACT_APP_API_HOST}/todos`, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
