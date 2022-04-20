@@ -1,13 +1,14 @@
-const Login = () => {
-    const handleSubmit = () => {
-        console.log('submit');
-    }
+import LoginForm from '../components/LoginForm'
+import '../styles/Login.scss';
 
+const Login = () => {
     return (
         <div className="login">
-            <form onSubmit={handleSubmit}>
+            <div className="container">
+                <h1 className="title">Please log in for the list</h1>
 
-            </form>
+                <LoginForm />
+            </div>
         </div>
     )
 }
