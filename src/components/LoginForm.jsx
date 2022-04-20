@@ -1,22 +1,34 @@
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+
 
 const LoginForm = () => {
+    const cookies = new Cookies();
+    const navigate = useNavigate();
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
-        const username = ev.target[1].value;
+        const username = ev.target[0].value;
         const password = ev.target[1].value;
 
         if (!username || !password) {
             return alert('Please fill the email and password fields!')
         }
 
-        const resp = await axios.post('localhost:8008/', {
+        // I know it's totally wrong to use it like that but helps us a lot as of now
+        const resp = await axios.post(`${process.env.REACT_APP_API_HOST}/authenticate`, {
             userName: username,
             password
         });
 
-        console.log(resp);
+        if (resp?.data?.token) {
+            cookies.set('auth-token', resp?.data?.token);
+
+            navigate('/list');
+        } else {
+            alert('Something went wrong!');
+        }
     }
 
     return (
