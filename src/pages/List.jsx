@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../api';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DataList from '../components/DataList';
@@ -10,30 +10,22 @@ const List = () => {
   const navigate = useNavigate();
   const token = getToken();
 
-  useEffect(() => {
-    if (!token) {
-      navigate('/');
-    }
-
-    return;
-  });
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  if (!token) {
+    navigate('/');
+    return null;
+  }
 
   const fetchData = async () => {
-    const resp = await axios.get(`${process.env.REACT_APP_API_HOST}/todos`, {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const resp = await axios.get(`${process.env.REACT_APP_API_HOST}/todos`);
 
     if (resp.status === 200) {
       setData(resp.data);
     }
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div className="list">

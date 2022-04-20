@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '@material-ui/core';
 import { AiOutlinePlus } from 'react-icons/ai';
-import axios from 'axios';
+import axios from '../api';
 import Cookies from 'universal-cookie';
 import getToken from '../utils/getToken';
 
@@ -18,13 +18,11 @@ const AddTodo = () => {
       return alert('Provide some content please!');
     }
 
-    const headers = { headers: { Authorization: `Bearer ${token}` } };
     const body = { title: title, body: todoBody };
 
     const resp = await axios.post(
       `${process.env.REACT_APP_API_HOST}/todos`,
-      body,
-      headers
+      body
     );
 
     if (resp?.status === 201) {

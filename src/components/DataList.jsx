@@ -2,7 +2,9 @@ import React from 'react';
 import AddTodo from './AddTodo';
 import { BsTrash } from 'react-icons/bs';
 import getToken from '../utils/getToken';
-import axios from 'axios';
+import axios from '../api';
+
+import TodoCard from './TodoCard';
 
 const DataList = ({ data }) => {
   const token = getToken();
@@ -13,11 +15,9 @@ const DataList = ({ data }) => {
 
   const handleDelete = async id => {
     const body = { id: id };
-    const headers = { headers: { Authorization: `Bearer ${token}` } };
     const resp = await axios.delete(
       `${process.env.REACT_APP_API_HOST}/todos`,
-      body,
-      headers
+      body
     );
   };
 
@@ -26,23 +26,12 @@ const DataList = ({ data }) => {
       <AddTodo />
 
       {data.map(item => (
-        <div className="list-item" key={item.id}>
-          <div
-            className="list-item-delete"
-            onClick={() => handleDelete(item.id)}
-          >
-            <BsTrash />
-          </div>
-
-          <div className="list-item-title">
-            Title of todo: <span>{item.title}</span>
-          </div>
-
-          <div
-            className="list-item-body"
-            dangerouslySetInnerHTML={{ __html: item.body }}
-          />
-        </div>
+        <TodoCard
+          key={item.id}
+          title={item.title}
+          body={item.body}
+          handleDelete={() => handleDelete(item.id)}
+        />
       ))}
     </div>
   );
