@@ -10,10 +10,8 @@ const DataList = ({ data, removeTodoFromList }) => {
   }
 
   const handleDelete = async id => {
-    const body = { id: id };
     const resp = await axios.delete(
-      `${process.env.REACT_APP_API_HOST}/todos`,
-      body
+      `${process.env.REACT_APP_API_HOST}/todos/${id}`
     );
 
     removeTodoFromList(id);
