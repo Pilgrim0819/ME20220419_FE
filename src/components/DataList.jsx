@@ -1,14 +1,10 @@
 import React from 'react';
 import AddTodo from './AddTodo';
-import { BsTrash } from 'react-icons/bs';
-import getToken from '../utils/getToken';
 import axios from '../api';
 
 import TodoCard from './TodoCard';
 
-const DataList = ({ data }) => {
-  const token = getToken();
-
+const DataList = ({ data, removeTodoFromList }) => {
   if (data.length < 1) {
     return null;
   }
@@ -19,6 +15,12 @@ const DataList = ({ data }) => {
       `${process.env.REACT_APP_API_HOST}/todos`,
       body
     );
+
+    removeTodoFromList(id);
+
+    if (resp?.status !== 200) {
+      alert('Something Went Wrong');
+    }
   };
 
   return (

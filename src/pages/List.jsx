@@ -23,6 +23,10 @@ const List = () => {
     }
   };
 
+  const removeTodo = id => {
+    setData(data.filter(i => i.id !== id));
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -36,7 +40,7 @@ const List = () => {
         </button>
       </div>
 
-      <DataList data={data} />
+      <DataList data={data} removeTodoFromList={removeTodo} />
     </div>
   );
 };
