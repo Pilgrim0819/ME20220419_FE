@@ -1,21 +1,17 @@
 import React, { useEffect } from 'react';
-import Cookies from 'universal-cookie';
-import { useNavigate } from 'react-router-dom';
-
-import LoginForm from '../components/LoginForm';
-
+import LoginForm from '../components/LoginForm'
 import '../styles/Login.scss';
+import { useNavigate } from 'react-router-dom';
+import getToken from '../utils/getToken';
 
 const Login = () => {
-  const cookies = new Cookies();
+  const token = getToken();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const authenticated = !!cookies.get('auth-token');
-
-    if (authenticated) {
-      navigate('/list');
-    }
+      if (token) {
+          navigate('/list');
+      }
   });
 
   return (
