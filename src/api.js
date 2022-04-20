@@ -7,7 +7,9 @@ axios.interceptors.request.use(
     const token = getToken();
 
     config.headers['Access-Control-Allow-Origin'] = '*';
-    config.headers.Authorization = `Bearer ${token}`;
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
 
     return config;
   },
