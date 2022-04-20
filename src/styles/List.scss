@@ -97,6 +97,40 @@
         font-weight: 300;
         font-size: 16px;
       }
+
+      &.good:after {
+        background-color: #2ba12b;
+        border-radius: 4px;
+        color: white;
+        content: "DO!";
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        left: 0;
+        opacity: .8;
+        padding: 4px;
+        position: absolute;
+        text-shadow: 1px 1px rgba(0,0,0,.3);
+        top: 0;
+        transform: translate(-50%, -50%);
+      }
+
+      &.bad:after {
+        background-color: #9f2d2d;
+        border-radius: 4px;
+        color: white;
+        content: "DON'T!";
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        left: 0;
+        opacity: .8;
+        padding: 4px;
+        position: absolute;
+        text-shadow: 1px 1px rgba(0,0,0,.3);
+        top: 0;
+        transform: translate(-50%, -50%);
+      }
     }
   }
 }

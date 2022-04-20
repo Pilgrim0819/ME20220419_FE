@@ -1,1 +1,1 @@
-export { default } from './TodoCard';
+export { default } from './TodoCardWithInnerHtml';

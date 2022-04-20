@@ -4,7 +4,7 @@ import { BsTrash } from 'react-icons/bs';
 
 const TodoCard = ({ title, body, handleDelete }) => {
   return (
-    <div className="list-item">
+    <div className="list-item bad">
       <div className="list-item-delete" onClick={handleDelete}>
         <BsTrash />
       </div>
