@@ -10,10 +10,13 @@ const List = () => {
   const navigate = useNavigate();
   const token = getToken();
 
-  if (!token) {
-    navigate('/');
-    return null;
-  }
+  useEffect(() => {
+    if (!token) {
+      navigate('/');
+    }
+  });
+
+  if (!token) return null;
 
   const fetchData = async () => {
     const resp = await axios.get(`${process.env.REACT_APP_API_HOST}/todos`);

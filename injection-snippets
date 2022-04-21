@@ -1,6 +1,6 @@
 
-// villogás
+// Epilepsy
 <img src="" onerror="let main=document.querySelector('.main'),a=0;setInterval(function(){0===a?(main.style.backgroundColor='black',a=1):(main.style.backgroundColor='white',a=0)},10);" />
 
-// body opacity change
+// Opacity
 <img src="" onerror="let a=0;setInterval(function(){0===a?(document.body.style.opacity=0,a=1):(document.body.style.opacity=1,a=0)},10);" />
